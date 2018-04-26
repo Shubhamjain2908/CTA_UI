@@ -1,0 +1,33 @@
+<div class="rendering-container">
+  <section class="section-container border-darkblue">
+    <div class="content-heading darkblue">
+      <h2 class="h5 white-heading">User Login</h2>
+    </div>
+    <form id="myform" (ngSubmit)="onSubmit()" #f="ngForm">
+
+      <div class="progression-input-field">
+        <label class="label" for="f1">Username</label>
+
+        <input id="username" type="text" name="username" value="" placeholder="Username" ngModel required #username="ngModel">
+        <label class="label" style="color: red" for="f1" *ngIf="!username.valid && username.touched">Username must be nonempty.</label>
+      </div>
+
+      <div class="progression-input-field">
+        <label class="label" for="">Password</label>
+
+        <input id="password" type="password" name="password" placeholder="Password" ngModel required #password="ngModel">
+        <label class="label" style="color: red" for="f1" *ngIf="!password.valid && password.touched">You should have a password for your account.</label>
+      </div>
+
+      <div class="progression-button">
+        <button type="button" style="cursor: not-allowed !important" class="btn" id="btnSubmit" *ngIf="!f.valid" >Submit</button>
+        <button type="submit" class="btn" name="btnSubmit" id="btnSubmit" *ngIf="f.valid && f.touched">Submit</button>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color: red; position: absolute;" class="invalid" *ngIf="!f.valid && username.touched && password.touched">All fields are mandatory</span>
+      </div>
+
+    </form>
+  </section>
+</div>
+

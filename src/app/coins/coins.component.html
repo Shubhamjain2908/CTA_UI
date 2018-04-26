@@ -1,0 +1,38 @@
+
+  <h2>Crypto Currencies</h2>
+  <p>The table shows top 100 crypto currencies.</p>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price Usd</th>
+      <th>Market Cap</th>
+      <th>Available Supply</th>
+      <th>Max Supply</th>
+      <th>% change 1h</th>
+      <th>% change 24h</th>
+      <th>% change 7d</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of coins;">
+      <td>{{c.rank}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.symbol}}</td>
+      <td>{{c.price_usd}}</td>
+      <td>{{c.market_cap_usd}}</td>
+      <td>{{c.available_supply}}</td>
+      <td>{{c.max_supply}}</td>
+      <td>{{c.percent_change_1h}}</td>
+      <td>{{c.percent_change_24h}}</td>
+      <td>{{c.percent_change_7d}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="loading" *ngIf="loader">
+    <div class="loading-image">
+      <div class="loader"></div>
+    </div>
+  </div>

@@ -1,0 +1,175 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+#myform{
+  padding: 5px;
+  width: 60%;
+
+}
+#myform label{
+  /*display: inline-block;
+  padding: 10px;*/
+  white-space: nowrap;
+  width: 50px;
+  float: left;
+}
+#myform input{
+  /*width: 130%;
+  padding: 10px;*/
+  float: left;
+  width: 280px;
+  min-width: 280px;
+  margin-top: 5px;
+}
+#myform textarea{
+  /*width: 130%;*/
+  float: left;
+  width: 280px;
+  min-width: 280px;
+  margin-top: 5px;
+}
+#myform p{
+  /*display: inline-block;
+  margin-bottom: 20px;*/
+}
+.percent {
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  margin-left: 5px;
+  height: auto;
+  position: absolute;
+  top: 2px
+}
+
+.triangle_right {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7.5px 10px 7.5px 0;
+  border-color: transparent rgba(255, 255, 255, .3) transparent
+  transparent;
+  display: block;
+  position: absolute;
+  left: -10px;
+  top: 10px
+}
+
+.triangle_left {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7.5px 0 7.5px 10px;
+  border-color: transparent transparent transparent
+  rgba(255, 255, 255, .3);
+  display: block;
+  position: absolute;
+  right: -10px;
+  top: 10px
+}
+.label{
+  font-size:13px;
+  font-weight: bold;
+}
+.tooltip p {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 14px
+}
+
+.percentagebarinner {
+  width: 0;
+  background: #FFF;
+  height: 20px;
+  background: #6ea5e1;
+  position: relative
+}
+
+.percentagebar {
+  width: 100%;
+  position: relative;
+  background: #FFF;
+  height: 20px
+}
+
+.rendering-container{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.section-container{
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.form-slider-contents{
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+.form-formatter-contents{
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+label{
+  margin-bottom: 0;
+  padding: 10px;
+  padding-right: 70px;
+}
+.attribute-name{
+  width: 20%;
+  text-align: left;
+  color: #656565;
+}
+.attribute-field{
+  box-sizing: border-box;
+  display: flex;
+  width: 79%;
+}
+.input-field{
+  width: 30%;
+  padding: 10px;
+}
+#slider{
+  width: 30%;
+  margin: 10px;
+}
+.progression-input-field{
+  width: 100%;
+  display: inline-block;
+}
+.progression-input-field input{
+  margin-left: 10px;
+}
+.progression-input-field textarea{
+  margin-left: 10px;
+}
+.progression-button{
+  width: 30%;
+  margin-left: 10px;
+  cursor:pointer;
+}
+.btn{
+  cursor:pointer;
+}
+input{
+  margin-bottom:10px;
+  min-width:20%;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
