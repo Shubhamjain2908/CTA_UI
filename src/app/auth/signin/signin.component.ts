@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../service/auth.service';
+import {AuthGuardService} from '../auth-guard.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,12 +12,12 @@ export class SigninComponent implements OnInit {
 
   @ViewChild('f') submitForm: NgForm;
 
-  user = {
-    username: '',
-    password: ''
-  };
+   user = {
+     username: '',
+     password: ''
+   };
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private authGuard: AuthGuardService) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,7 @@ export class SigninComponent implements OnInit {
     this.auth.signIn(this.user)
       .subscribe(
         (response: any) => {
+          this.authGuard.onLogin(response.user.username);
           this.submitForm.reset();
           console.log(response);
         },

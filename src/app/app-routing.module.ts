@@ -6,6 +6,7 @@ import {SigninComponent} from './auth/signin/signin.component';
 import {SignupComponent} from './auth/signup/signup.component';
 
 const appRoutes: Routes = [
+  { path: ' ', component: ErrorPageComponent },
   { path: 'home', component: CoinsComponent },
   { path: 'signin', component: SigninComponent},
   { path: 'signup', component: SignupComponent},

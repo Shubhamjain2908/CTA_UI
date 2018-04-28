@@ -1,7 +1,7 @@
-
+<div class="col-xs-12 col-sm-auto col-md-auto col-lg-auto" >
   <h2>Crypto Currencies</h2>
   <p>The table shows top 100 crypto currencies.</p>
-  <table class="table table-striped">
+  <table datatable [dtOptions]="dtOptions" class="table table-striped row-border hover ">
     <thead>
     <tr>
       <th>Rank</th>
@@ -10,10 +10,10 @@
       <th>Price Usd</th>
       <th>Market Cap</th>
       <th>Available Supply</th>
-      <th>Max Supply</th>
       <th>% change 1h</th>
       <th>% change 24h</th>
       <th>% change 7d</th>
+      <th *ngIf="!authGuard.isLogin">Favourites</th>
     </tr>
     </thead>
     <tbody>
@@ -24,15 +24,11 @@
       <td>{{c.price_usd}}</td>
       <td>{{c.market_cap_usd}}</td>
       <td>{{c.available_supply}}</td>
-      <td>{{c.max_supply}}</td>
       <td>{{c.percent_change_1h}}</td>
       <td>{{c.percent_change_24h}}</td>
       <td>{{c.percent_change_7d}}</td>
+      <td *ngIf="!authGuard.isLogin"><input type="checkbox" name="fav" value="{{c.name}}" (change)="addCoins($event)"></td>
     </tr>
     </tbody>
   </table>
-  <div class="loading" *ngIf="loader">
-    <div class="loading-image">
-      <div class="loader"></div>
-    </div>
-  </div>
+</div>

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CtaService} from './service/cta.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  loader = true;
-  constructor() {}
+  constructor(private cta: CtaService) {}
 
   ngOnInit() {
-    this.loader = false;
+    this.cta.loader = false;
   }
 }

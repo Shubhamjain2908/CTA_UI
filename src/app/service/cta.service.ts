@@ -4,6 +4,8 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class CtaService {
 
+  loader = true;
+
   constructor(private http: HttpClient) {}
 
   loadCoins() {

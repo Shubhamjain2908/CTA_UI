@@ -15,6 +15,8 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './service/auth.service';
+import {DataTablesModule} from 'angular-datatables';
+import {AuthGuardService} from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,10 @@ import {AuthService} from './service/auth.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
-  providers: [CtaService, AuthService],
+  providers: [CtaService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

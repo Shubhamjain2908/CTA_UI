@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <a style="color: rgba(220, 51, 51, 0.9); " class="navbar-brand" href="#">Coin Tracking Application</a>
+  <span style="color: rgba(220, 51, 51, 0.9); " class="navbar-brand">Coin Tracking Application</span>
   <button class="navbar-toggler" (click)="collapse=!collapse" type="button" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,12 +13,17 @@
         <a class="nav-link" routerLink="/about"><i class="far fa-address-card"></i> About</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
+    <ul *ngIf="!authGuard.isLogin" class="nav navbar-nav navbar-right">
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/signup"><i class="fas fa-user-plus"></i> Register</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/signin"><i class="fas fa-sign-in-alt"></i> Signin</a>
+      </li>
+    </ul>
+    <ul *ngIf="authGuard.isLogin" class="nav navbar-nav navbar-right">
+      <li class="nav-item" routerLinkActive="active">
+        <a style="cursor: pointer" class="nav-link" (click)="logout()"><i class="fas fa-user-plus"></i> Logout</a>
       </li>
     </ul>
   </div>
