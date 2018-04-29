@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../service/auth.service';
 import {AuthGuardService} from '../auth-guard.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -17,7 +18,7 @@ export class SigninComponent implements OnInit {
      password: ''
    };
 
-  constructor(private auth: AuthService, private authGuard: AuthGuardService) { }
+  constructor(private auth: AuthService, private authGuard: AuthGuardService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,11 +30,19 @@ export class SigninComponent implements OnInit {
     this.auth.signIn(this.user)
       .subscribe(
         (response: any) => {
-          this.authGuard.onLogin(response.user.username);
-          this.submitForm.reset();
-          console.log(response);
+          this.authGuard.onLogin(response.user.username, response.user.favCoins);
+          this.router.navigate(['/dashboard']);
         },
-        (error) => console.log(error)
+        (error) => {
+          if (error.status === 302) {
+            this.authGuard.onLogin(error.error.user.username, error.error.user.favCoins);
+            this.router.navigate(['/dashboard']);
+          } else {
+            alert(error.error.message);
+            this.router.navigate(['/not-found']);
+          }
+          // console.log(error);
+        }
       );
   }
 }

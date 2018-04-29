@@ -4,6 +4,7 @@ import {AuthService} from '../../service/auth.service';
 import {AuthGuardService} from '../auth-guard.service';
 import {CtaService} from '../../service/cta.service';
 import {UserModel} from '../../models/user.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,10 @@ export class SignupComponent implements OnInit {
   @ViewChild('f') submitForm: NgForm;
   public user: UserModel;
 
-  constructor(private auth: AuthService, private authGuard: AuthGuardService, private coinsService: CtaService) { }
+  constructor(private auth: AuthService,
+              private authGuard: AuthGuardService,
+              private coinsService: CtaService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -34,13 +38,16 @@ export class SignupComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.coinsService.loader = false;
-          this.authGuard.onLogin(response.user.username);
+          this.authGuard.onLogin(response.user.username, response.user.favCoins);
+          alert(response.message);
+          this.router.navigate(['/dashboard']);
           this.submitForm.reset();
-          console.log(response);
         },
-        (error) => console.log(error)
+        (error) => {
+          console.log(error);
+          this.router.navigate(['/not-found']);
+        }
       );
-
   }
 
 }

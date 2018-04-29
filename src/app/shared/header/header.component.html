@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #efe8e9 !important;">
   <span style="color: rgba(220, 51, 51, 0.9); " class="navbar-brand">Coin Tracking Application</span>
   <button class="navbar-toggler" (click)="collapse=!collapse" type="button" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -22,8 +22,14 @@
       </li>
     </ul>
     <ul *ngIf="authGuard.isLogin" class="nav navbar-nav navbar-right">
+      <li class="nav-item">
+        <a class="nav-link"> Welcome {{authGuard.username}},</a>
+      </li>
       <li class="nav-item" routerLinkActive="active">
-        <a style="cursor: pointer" class="nav-link" (click)="logout()"><i class="fas fa-user-plus"></i> Logout</a>
+        <a class="nav-link" routerLink="/dashboard">Favourites({{authGuard.favCoins.length}})</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a style="cursor: pointer" class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
       </li>
     </ul>
   </div>

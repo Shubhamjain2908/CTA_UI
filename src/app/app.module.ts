@@ -13,10 +13,11 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AuthService} from './service/auth.service';
-import {DataTablesModule} from 'angular-datatables';
-import {AuthGuardService} from './auth/auth-guard.service';
+import { FormsModule } from '@angular/forms';
+import { AuthService} from './service/auth.service';
+import { DataTablesModule } from 'angular-datatables';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,13 @@ import {AuthGuardService} from './auth/auth-guard.service';
     PageNotFoundComponent,
     ErrorPageComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     DataTablesModule
   ],

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthGuardService} from '../../auth/auth-guard.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,13 @@ import {AuthGuardService} from '../../auth/auth-guard.service';
 export class HeaderComponent implements OnInit {
   collapse = true;
 
-  constructor(private authGuard: AuthGuardService) { }
+  constructor(private authGuard: AuthGuardService, private route: Router) { }
 
   ngOnInit() {
   }
 
   logout() {
     this.authGuard.onLogout();
+    this.route.navigate(['/home']);
   }
 }

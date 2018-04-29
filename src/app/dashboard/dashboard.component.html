@@ -1,8 +1,8 @@
 <div class="col-xs-12 col-sm-auto col-md-auto col-lg-auto text-center" >
-  <h2>Cryptocurrency Market Capitalizations</h2>
-  <p>The table shows All Cryptocurrencies.</p>
-  <hr>
-  <table datatable [dtOptions]="dtOptions" class="table table-striped row-border hover ">
+  <h2>Crypto Currencies</h2>
+  <p>Your Favourite Crypto Currencies .</p>
+    <hr>
+  <table class="table table-striped row-border hover ">
     <thead>
     <tr>
       <th>Rank</th>
@@ -14,7 +14,7 @@
       <th>% change 1h</th>
       <th>% change 24h</th>
       <th>% change 7d</th>
-      <th *ngIf="authGuard.isLogin">Favourites</th>
+      <th *ngIf="authGuard.isLogin">DELETE</th>
     </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@
       <td>{{c.percent_change_1h}}</td>
       <td>{{c.percent_change_24h}}</td>
       <td>{{c.percent_change_7d}}</td>
-      <td *ngIf="authGuard.isLogin"><input type="checkbox" name="del" value="{{c.name}}" [disabled]="(user.favCoins.indexOf(c.name) > -1)" (change)="addCoins($event)"></td>
+      <td *ngIf="authGuard.isLogin"><input type="checkbox" name="fav" value="{{c.name}}" (change)="delCoins($event)"></td>
     </tr>
     </tbody>
   </table>
