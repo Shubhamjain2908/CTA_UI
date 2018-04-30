@@ -260,3 +260,10 @@ input.button {
 button:hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, .50);
 }
+#coinTable {
+  width: 100%;
+  overflow: auto;
+}
+input[type=checkbox]:disabled {
+  cursor: not-allowed;
+}

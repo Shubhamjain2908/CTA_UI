@@ -1,7 +1,0 @@
-#coinTable {
-  width: 100%;
-  overflow: auto;
-}
-input[type=checkbox]:disabled {
-  cursor: not-allowed;
-}

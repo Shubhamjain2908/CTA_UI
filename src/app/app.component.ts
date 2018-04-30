@@ -8,7 +8,7 @@ import {CtaService} from './service/cta.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private cta: CtaService) {}
+  constructor(public cta: CtaService) {}
 
   ngOnInit() {
     this.cta.loader = false;

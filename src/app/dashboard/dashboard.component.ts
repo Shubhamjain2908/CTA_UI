@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   public coins = [];
 
-  constructor(private authGuard: AuthGuardService, private cta: CtaService, private auth: AuthService) {
+  constructor(public authGuard: AuthGuardService, private cta: CtaService, private auth: AuthService) {
 
   }
 

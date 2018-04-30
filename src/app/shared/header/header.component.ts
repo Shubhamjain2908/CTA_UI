@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class HeaderComponent implements OnInit {
   collapse = true;
 
-  constructor(private authGuard: AuthGuardService, private route: Router) { }
+  constructor(public authGuard: AuthGuardService, private route: Router) { }
 
   ngOnInit() {
   }

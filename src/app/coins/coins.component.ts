@@ -17,7 +17,7 @@ export class CoinsComponent implements OnInit {
     favCoins: this.authGuard.favCoins
   };
 
-  constructor(private coinsService: CtaService, private authGuard: AuthGuardService, private auth: AuthService) {
+  constructor(private coinsService: CtaService, public authGuard: AuthGuardService, private auth: AuthService) {
     coinsService.loader = true;
     this.loadCoins();
   }
