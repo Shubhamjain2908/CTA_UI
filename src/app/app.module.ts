@@ -18,6 +18,7 @@ import { AuthService} from './service/auth.service';
 import { DataTablesModule } from 'angular-datatables';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CoinDetailsComponent } from './coin-details/coin-details.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ErrorPageComponent,
     SigninComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    CoinDetailsComponent
   ],
   imports: [
     BrowserModule,

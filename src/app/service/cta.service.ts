@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class CtaService {
 
-  loader = true;
+  public loader = true;
 
   constructor(private http: HttpClient) {}
 
@@ -12,4 +12,7 @@ export class CtaService {
     return this.http.get('https://api.coinmarketcap.com/v1/ticker/?start=0&limit=' + end);
   }
 
+  getCoin(id: string, convert: string) {
+    return this.http.get('https://api.coinmarketcap.com/v1/ticker/' + id + '/?convert=' + convert);
+  }
 }

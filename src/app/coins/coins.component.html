@@ -30,7 +30,7 @@
     <tbody>
     <tr *ngFor="let c of coins;">
       <td>{{c.rank}}</td>
-      <td>{{c.name}}</td>
+      <td><a (click)="showDetails(c.name)">{{c.name}}</a></td>
       <td>{{c.symbol}}</td>
       <td>{{c.price_usd}}</td>
       <td>{{c.market_cap_usd}}</td>

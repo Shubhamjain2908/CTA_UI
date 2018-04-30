@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CtaService} from '../service/cta.service';
 import {AuthGuardService} from '../auth/auth-guard.service';
 import {AuthService} from '../service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-coins',
@@ -17,7 +18,7 @@ export class CoinsComponent implements OnInit {
     favCoins: this.authGuard.favCoins
   };
 
-  constructor(private coinsService: CtaService, public authGuard: AuthGuardService, private auth: AuthService) {
+  constructor(private coinsService: CtaService, public authGuard: AuthGuardService, private auth: AuthService, private router: Router) {
     coinsService.loader = true;
     this.loadCoins();
   }
@@ -91,5 +92,9 @@ export class CoinsComponent implements OnInit {
           alert(error.error.message);
         }
       );
+  }
+
+  showDetails(id) {
+    this.router.navigate(['coin', id]);
   }
 }

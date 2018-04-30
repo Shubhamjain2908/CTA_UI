@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthGuardService} from '../auth/auth-guard.service';
 import {CtaService} from '../service/cta.service';
 import {AuthService} from '../service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,10 @@ export class DashboardComponent implements OnInit {
 
   public coins = [];
 
-  constructor(public authGuard: AuthGuardService, private cta: CtaService, private auth: AuthService) {
+  constructor(public authGuard: AuthGuardService,
+              private cta: CtaService,
+              private auth: AuthService,
+              private router: Router) {
 
   }
 
@@ -21,6 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   loadCurrency() {
+    this.cta.loader = true;
     this.cta.getCoins(1587)
       .subscribe(
         (response: any) => {
@@ -32,9 +37,11 @@ export class DashboardComponent implements OnInit {
             });
           });
           this.coins.sort(function(a, b) { return a.rank - b.rank });
+          this.cta.loader = false;
         },
         (error) => {
           console.log(error);
+          this.cta.loader = false;
         }
       );
   }
@@ -61,5 +68,9 @@ export class DashboardComponent implements OnInit {
       console.log('Not Checked');
       e.target.checked = false;
     }
+  }
+
+  showDetails(id) {
+    this.router.navigate(['coin', id]);
   }
 }
