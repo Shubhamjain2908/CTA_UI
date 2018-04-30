@@ -1,0 +1,3 @@
+a:active, a:focus, a:hover {
+  border: black dashed 1px;
+}

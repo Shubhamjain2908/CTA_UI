@@ -21,12 +21,12 @@ export class CoinsComponent implements OnInit {
     coinsService.loader = true;
     this.loadCoins();
   }
-  dtOptions: DataTables.Settings = {};
+  dtOptions: DataTables.Settings = {pagingType: 'full_numbers'};
 
-  ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers'
-    };
+  ngOnInit() {
+    // this.dtOptions = {
+    //   pagingType: 'full_numbers'
+    // };
     setInterval(() => {
       this.coinsService.loader = true;
       this.loadCoins();
@@ -34,7 +34,23 @@ export class CoinsComponent implements OnInit {
   }
 
   loadCoins() {
-    this.coinsService.loadCoins()
+    this.coinsService.getCoins(100)
+      .subscribe(
+        (response: any) => {
+          this.coins = response;
+          this.coinsService.loader = false;
+        },
+        (error) => {
+          alert('Internal server error : ' +
+            'Check your internet connection');
+          this.coinsService.loader = false;
+        }
+      );
+  }
+
+  coinsChange(noOfCoins: HTMLInputElement) {
+    this.coinsService.loader = true;
+    this.coinsService.getCoins(+noOfCoins.value)
       .subscribe(
         (response: any) => {
           this.coins = response;

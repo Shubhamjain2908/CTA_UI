@@ -41,7 +41,7 @@ export class SigninComponent implements OnInit {
             alert(error.error.message);
             this.router.navigate(['/not-found']);
           }
-          // console.log(error);
+          console.log(error);
         }
       );
   }

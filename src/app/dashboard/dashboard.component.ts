@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   loadCurrency() {
-    this.cta.loadCoins()
+    this.cta.getCoins(1587)
       .subscribe(
         (response: any) => {
           this.authGuard.favCoins.forEach((value) => {
@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
               }
             });
           });
+          this.coins.sort(function(a, b) { return a.rank - b.rank });
         },
         (error) => {
           console.log(error);

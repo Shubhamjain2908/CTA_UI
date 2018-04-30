@@ -2,7 +2,17 @@
   <h2>Cryptocurrency Market Capitalizations</h2>
   <p>The table shows All Cryptocurrencies.</p>
   <hr>
-  <table datatable [dtOptions]="dtOptions" class="table table-striped row-border hover ">
+  <div class="col-md-3 form-group">
+    <div class="selectContainer">
+      <select class="form-control" name="noOfCoins" id="noOfCoins" (change)="coinsChange(noOfCoins)" #noOfCoins>
+        <option value="1587">All</option>
+        <option selected="selected" value="10">Top 100</option>
+        <option value="500">Top 500</option>
+        <option value="1000">Top 1000</option>
+      </select>
+    </div>
+  </div>
+  <table class="table table-striped row-border hover ">
     <thead>
     <tr>
       <th>Rank</th>

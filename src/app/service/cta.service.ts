@@ -8,8 +8,8 @@ export class CtaService {
 
   constructor(private http: HttpClient) {}
 
-  loadCoins() {
-    return this.http.get('https://api.coinmarketcap.com/v1/ticker/?start=0&limit=1587');
+  getCoins(end: number) {
+    return this.http.get('https://api.coinmarketcap.com/v1/ticker/?start=0&limit=' + end);
   }
 
 }
